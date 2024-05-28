@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Encoder/Decoder</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: rgb(179, 179, 179);">
+    <!-- nav  -->
+    <section>
+        <div class=" bg-dark">
+            <header class="d-flex justify-content-around py-3 bg-black">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a id="downloadPython" class="btn btn-info mx-2" href="#" download="morse_code.py">Download Python File</a></li>
+                <li class="nav-item"><a id="downloadCpp" class="btn btn-warning mx-2" href="#" download="morse_code.cpp">Download C++ File</a></li>
+              </ul>
+            </header>
+          </div>
+        
+    </section>
+    <div class="container mt-5">
+        <h1 class="text-center">Morse Code Encoder/Decoder</h1>
+        <div class="form-group">
+            <label for="inputText">Input Text or Morse Code</label>
+            <textarea class="form-control" id="inputText" rows="5"></textarea>
+        </div>
+        <div class="form-group text-center">
+            <button id="encodeBtn" class="btn btn-primary">Encode to Morse Code</button>
+            <button id="decodeBtn" class="btn btn-secondary">Decode from Morse Code</button>
+        </div>
+        <div class="form-group">
+            <label for="outputText">Output</label>
+            <textarea class="form-control" id="outputText" rows="5" readonly></textarea>
+        </div>
+        <!-- <div class="form-group text-center">
+            <a id="downloadPython" class="btn btn-info" href="#" download="morse_code.py">Download Python File</a>
+            <a id="downloadCpp" class="btn btn-warning" href="#" download="morse_code.cpp">Download C++ File</a>
+        </div> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
