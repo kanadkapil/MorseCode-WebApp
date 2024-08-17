@@ -1,128 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="coffee">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morse Code Encoder/Decoder</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Deep Blue */
-        .bg-deep-blue {
-            background: linear-gradient(to right, #000428, #004e92);
-            color: #ffffff;
-        }
-
-        body {
-            color: white;
-        }
-
-        /* Purple Dream */
-        .bg-purple-dream {
-            background: linear-gradient(to right, #1a2a6c, #db3636, #ffd781);
-        }
-
-        /* Mystic Night */
-        .bg-mystic-night {
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-        }
-
-        /* Midnight City */
-        .bg-midnight-city {
-            background: linear-gradient(to right, #535353, #b1b4b8);
-        }
-
-        /* Dark Knight */
-        .bg-dark-knight {
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-        }
-
-        .gradient-button {
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-        }
-
-        .gradient-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Gradient colors */
-        .gradient1 {
-            background: linear-gradient(45deg, #ff9599, #ffcabb);
-        }
-
-        .gradient2 {
-            background: linear-gradient(45deg, #aa8dee, #f3a8de);
-        }
-
-        .gradient3 {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
-        }
-
-        /* zoom effect  */
-
-        .zoom {
-            /* padding: 0px; */
-            /* background-color: blue; */
-            transition: transform .3s;
-            /* width: 0px; */
-            /* height: 0px; */
-            margin: 0 auto;
-        }
-
-        .zoom:hover {
-            -ms-transform: scale(1.1);
-            /* IE 9 */
-            -webkit-transform: scale(1.1);
-            /* Safari 3-8 */
-            transform: scale(1.05);
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity=""
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-mystic-nigh">
+<body class="bg-base-200 text-base-content">
     <!-- nav  -->
     <section>
-        <div class=" bg-dark">
-            <header class="d-flex justify-content-around py-3 bg-black">
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a id="downloadPython" class="btn btn-info zoom mx-4" href="#"
-                            download="morse_code.py ">Download Python File</a></li>
-                    <li class="nav-item"><a id="downloadCpp" class="btn btn-warning zoom mx-4" href="#"
-                            download="morse_code.cpp">Download C++ File</a></li>
+        <div class="bg-neutral">
+            <header class="flex justify-around py-3 bg-neutral text-neutral-content">
+                <ul class="flex space-x-4">
+                    <li>
+                        <a id="downloadPython" class="btn btn-info" href="#" download="morse_code.py">Download Python
+                            File</a>
+                    </li>
+                    <li>
+                        <a id="downloadCpp" class="btn btn-warning" href="#" download="morse_code.cpp">Download C++
+                            File</a>
+                    </li>
                 </ul>
             </header>
         </div>
-
     </section>
-    <div class="container mt-5">
-        <h1 class="text-center mb-5">Morse Code Encoder/Decoder</h1>
-        <div class="form-group">
-            <h2 class="mb-4">Input Text or Morse Code:</h2>
-            <textarea class="form-control" id="inputText" rows="5"
+
+    <div class="container mx-auto mt-10">
+        <h1 class="text-center text-4xl font-bold mb-5 text-primary">Morse Code Encoder/Decoder</h1>
+        <div class="form-control mb-6">
+            <label for="inputText" class="label">
+                <span class="label-text text-3xl text-primary ">Input Text or Morse Code:</span>
+            </label>
+            <textarea class="textarea textarea-bordered textarea-lg w-full" id="inputText" rows="5"
                 placeholder="Write here ................!!!"></textarea>
         </div>
-        <div class="form-group text-center">
-            <button id="encodeBtn" class="btn btn-primary bg-dark-knight zoom mx-2">Encode to Morse Code</button>
-            <button id="decodeBtn" class="btn btn-secondary bg-mystic-night zoom mx-2">Decode from Morse Code</button>
+        <div class="form-control text-center mb-6">
+            <button id="encodeBtn" class="btn btn-primary mx-2 my-3">Encode to Morse Code</button>
+            <button id="decodeBtn" class="btn btn-secondary mx-2 my-3">Decode from Morse Code</button>
         </div>
-        <div class="form-group">
-            <h2 class="mb-4">Output:</h2> <textarea class="form-control" id="outputText" rows="5" readonly></textarea>
+        <div class="form-control">
+            <label for="outputText" class="label">
+                <span class="label-text text-3xl text-primary">Output:</span>
+            </label>
+            <textarea class="textarea textarea-bordered textarea-lg w-full" placeholder="Wait ....!? UwU"
+                id="outputText" rows="5" readonly></textarea>
         </div>
-        <!-- <div class="form-group text-center">
-            <a id="downloadPython" class="btn btn-info" href="#" download="morse_code.py">Download Python File</a>
-            <a id="downloadCpp" class="btn btn-warning" href="#" download="morse_code.cpp">Download C++ File</a>
-        </div> -->
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="Script.js"></script>
 </body>
 
